@@ -36,28 +36,24 @@ class Main(QMainWindow):
         self.plotLayout.addWidget(self.toolbar)
         self.plotLayout.addWidget(self.canvas)
 
-        self.populateWindow()
-
         # connecting signals to slots
         self.actionQuit.triggered.connect(self.close)
+        self.cbbWaveletFamily.activated[str].connect(self.populateCBBWavelet)
         
-        ###########################################################################
-        ###########################################################################
-        # verificar como passar uma string: novo estilo de conectar signal-slot
-        self.cbbWaveletFamily.activated.connect(self.populateCBBWavelet(str))
+        # inicialization functions
+        self.populateWindow()
+        
     # __init__()
 
 
     def populateWindow(self):
         self.cbbWaveletFamily.addItems(pywt.families())
-        #for family in pywt.families():
-        #    self.cbbWaveletFamily
-            #for wave in pywt.wavelist(family):
+        self.cbbWavelet.addItems(pywt.wavelist('haar'))
         
     # populateWindow(self)
     
     def populateCBBWavelet(self, family):
-        print('oiooo ', family)
+        self.cbbWavelet.clear()
         self.cbbWavelet.addItems(pywt.wavelist(family))
         
     # populateWindow(self)
