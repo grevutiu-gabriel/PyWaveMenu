@@ -52,11 +52,13 @@ class Main(QMainWindow):
         
     # populateWindow(self)
     
+    
     def populateCBBWavelet(self, family):
         self.cbbWavelet.clear()
         self.cbbWavelet.addItems(pywt.wavelist(family))
         
-    # populateWindow(self)
+    # populateCBBWavelet(self)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
