@@ -8,6 +8,9 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.uic import *
 
+from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt4agg import NavigationToolbar2QTAgg as NavigationToolbar
+import matplotlib.pyplot as plt
 
 """ MainWindow class """
 class Main(QMainWindow):
@@ -19,10 +22,17 @@ class Main(QMainWindow):
         loadUi('mainwindow.ui', self)
 
 
+        # the plot
+        self.figure = plt.figure()
+        
+        # canvas will show the plot itself
+        self.canvas = FigureCanvas(self.figure)
 
-        # conectando os sinais aos slots
+        # matplotlib toolbar
+        self.toolbar = NavigationToolbar(self.canvas, self)
 
-
+        # connecting signals to slots
+        
     # __init__()
 
     @pyqtSlot()
