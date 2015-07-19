@@ -1,15 +1,12 @@
-__author__ = 'helder'
 '''
-    This began at July,24 2014
-
+    This started in July 24th 2014
 '''
 
 import sys, os, time
 
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.uic import *
+from PyQt4.QtGui import *
+from PyQt4.QtCore import *
+from PyQt4.uic import *
 
 
 """ MainWindow class """
@@ -30,7 +27,7 @@ class Main(QMainWindow):
 
     @pyqtSlot()
     def close(self):
-        pass
+        exit()
 
 
 if __name__ == "__main__":
