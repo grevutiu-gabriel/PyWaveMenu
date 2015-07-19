@@ -30,14 +30,13 @@ class Main(QMainWindow):
 
         # matplotlib toolbar
         self.toolbar = NavigationToolbar(self.canvas, self)
+        
+        self.plotLayout.addWidget(self.toolbar)
+        self.plotLayout.addWidget(self.canvas)
 
         # connecting signals to slots
         self.actionQuit.triggered.connect(self.close)
     # __init__()
-
-    #@pyqtSlot()
-    #def close(self):
-    #    exit()
 
 
 if __name__ == "__main__":
